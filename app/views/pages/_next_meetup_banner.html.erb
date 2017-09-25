@@ -1,0 +1,38 @@
+<% if @next_meetup.present? %>
+  <% if @next_meetup['venue'] %>
+    <section class="a-section">
+      <div class="a-content--wide">
+        <div class="m-intro">
+          <h1 class="a-heading--large">
+            Join <%= @next_meetup['yes_rsvp_count'] %> others at our next meetup
+          </h1>
+          <h2>
+            <%= timestamp_to_date(@next_meetup['time']) %> at <%= @next_meetup['venue']['name'] %>
+          </h2>
+          <h3>
+            <%= link_to "http://maps.google.com/?q=#{@next_meetup['venue']['address_1']}", target: '_blank' do %>
+              <%= @next_meetup['venue']['address_1'] %>
+            <% end %>
+          </h3>
+          <%= link_to 'RSVP', @next_meetup['link'], target: '_blank', class: 'a-button' %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+<% else %>
+    <section class="a-section">
+      <div class="a-content--wide">
+        <div class="m-intro">
+          <h1 class="a-heading--large">
+            Join us at our next meetup
+          </h1>
+          <h3>
+            <%= link_to "http://maps.google.com/?q=1 THE VILLAGE OFFICES, WESTFIELD, ARIEL WAY LONDON, London", target: '_blank' do %>
+              1 THE VILLAGE OFFICES, WESTFIELD, WHITE CITY, LONDON
+            <% end %>
+          </h3>
+          <%= link_to 'RSVP', 'https://www.meetup.com/West-London-Coders/', target: '_blank', class: 'a-button' %>
+        </div>
+      </div>
+    </section>
+<% end %>

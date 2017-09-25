@@ -1,0 +1,19 @@
+<% set_page_title("Learn, discuss and practice code") %>
+
+<div class="m-hero--video">
+  <%= video_tag "https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/video/gdg.mov", controls: false, autoplay: true, muted: true, loop: true, id: 'home-vid' %>
+  <h1 id="next-meetup-banner">Learn, discuss and practice code.</h1>
+</div>
+
+<%= render partial: 'next_meetup_banner' %>
+
+<section class="a-section a-section--img-block"></section>
+
+<!-- Add content here -->
+
+<div class="m-hero--home"></div>
+
+<script>
+  var videoHero = document.getElementById('home-vid');
+  videoHero.muted = "muted";
+</script>

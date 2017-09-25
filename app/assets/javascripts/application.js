@@ -14,3 +14,4 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require turbolinks
+//= require application/menu.js

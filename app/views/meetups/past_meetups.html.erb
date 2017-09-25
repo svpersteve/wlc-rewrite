@@ -1,0 +1,15 @@
+<section class="a-section a-section--alt">
+  <div class="a-content--wide">
+    <h1>
+      All
+      <%= @all_past_meetups.count %>
+      past meetups
+    </h1>
+    <div class="m-grid">
+      <% @all_past_meetups.each do |meetup| %>
+        <%= render partial: 'meetup', locals: { meetup: meetup, past: true } %>
+      <% end %>
+    </div>
+  </div>
+  <br/>
+</section>

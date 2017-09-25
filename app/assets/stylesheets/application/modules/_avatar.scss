@@ -18,3 +18,11 @@
 .a-avatar--square {
   border-radius: 15%;
 }
+
+.a-avatar--background {
+  height: 72px;
+  width: 72px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}

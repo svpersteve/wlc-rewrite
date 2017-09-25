@@ -1,0 +1,67 @@
+<section class="a-section a-section--alt a-section--separated">
+  <div class="a-content--wide">
+    <% seconds = (@meetup['time'].to_f / 1000).to_s %>
+    <% date = Date.strptime(seconds, '%s') %>
+    <p>
+      <%= date.strftime("%A #{date.day.ordinalize} %B") %>
+    </p>
+    <h1>
+      <%= link_to @meetup['name'], @meetup['link'], target: '_blank' %>
+    </h1>
+    <span class="a-heading--small">
+      <%= @meetup['venue']['name'] %>
+    </span>
+    <br/>
+    <%= link_to "http://maps.google.com/?q=#{@meetup['venue']['address_1']}", target: '_blank' do %>
+      <i class="fa fa-map-marker"></i>
+      <%= @meetup['venue']['address_1'].gsub(', London', '') %>
+    <% end %>
+    <div class="u-margin-top--small">
+      <% if @meetup['yes_rsvp_count'] > 0 %>
+        <%= link_to "RSVP", @meetup['link'], target: '_blank', class: 'a-button' %>
+      <% else %>
+        <%= link_to "RSVP", @meetup['link'], target: '_blank', class: 'a-button' %>
+      <% end %>
+    </div>
+    <p class="u-float-right">
+      <%= link_to 'Print badges', badges_meetup_path(@meetup['id']), target: '_blank' %>
+    </p>
+  </div>
+</section>
+
+<section class="a-section">
+  <div class="a-content--wide">
+    <h1>Details</h1>
+    <%= sanitize @meetup['description'] %>
+  </div>
+</section>
+
+<section class="a-section">
+  <div class="a-content--wide">
+    <h1>
+      <%= pluralize @meetup['yes_rsvp_count'], 'person' %>
+      going
+    </h1>
+    <div class="m-members">
+      <% @members.each do |member| %>
+        <%= link_to "https://www.meetup.com/West-London-Coders/members/#{member['member']['id']}", target: '_blank' do %>
+          <div class="m-member">
+            <div class="m-member__content">
+              <div class="m-badge__avatar" style="background-image: url(<%= member['member']['photo']['thumb_link'] %>)"></div>
+              <div class="m-member__details">
+                <div class="m-member__name">
+                  <%= member['member']['name'] %>
+                </div>
+                <% if member['member']['role'] %>
+                  <div class="m-badge__role">
+                    <%= member['member']['role'] %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>

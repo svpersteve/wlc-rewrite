@@ -1,0 +1,18 @@
+<% set_page_title("Update email") %>
+<div class="u-margin-top"></div>
+<div class="m-sign-in m-sign-in--full">
+  <%= form_for @member do |f| %>
+    <section class="a-section">
+      <div class="a-content">
+        <h1>Please tell us your email address </h1>
+        <h3>
+          <%= f.label :email, 'Email' %>
+          <%= f.text_field :email, class: 'm-profile__wide-field', value: '' %>
+        </h3>
+        <div class="u-margin-top u-right">
+          <%= f.submit 'Save', class: 'a-button u-right' %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+</div>

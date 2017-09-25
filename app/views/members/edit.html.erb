@@ -1,0 +1,92 @@
+<% set_page_title("Edit profile") %>
+<div class="u-margin-top"></div>
+<div class="m-sign-in m-sign-in--full">
+  <%= form_for @member do |f| %>
+    <section class="a-section">
+      <div class="a-content">
+        <h3>
+          <%= f.label :name %>
+          <%= f.text_field :name, placeholder: "What's your name?" %>
+        </h3>
+        <h3>
+          <%= f.label :image %>
+          <%= f.text_field :image %>
+        </h3>
+        <h3>
+          <%= f.label :city %>
+          <%= f.text_field :city, placeholder: 'Ealing' %>
+        </h3>
+        <h3>
+          <%= f.label :interest_ids, 'Interests' %>
+          <%= f.select :interest_ids, interest_options_for_select(Hackroom.order('name asc'), f.object.interest_ids), { label: 'Interests' }, multiple: true, class: 'chosen-select' %>
+        </h3>
+      </div>
+    </section>
+
+
+    <section class="a-section">
+      <div class="a-content">
+        <h2>Links</h2>
+        <div class="m-profile__links">
+          <div class="m-profile__links--field">
+            <h3>
+              <i class="fa fa-twitter"></i>
+              <%= f.label :twitter, 'Twitter' %>
+              <%= f.text_field :twitter, placeholder: '@membername' %>
+            </h3>
+          </div>
+
+          <div class="m-profile__links--field">
+            <h3>
+              <i class="fa fa-instagram"></i>
+              <%= f.label :instagram, 'Instagram' %>
+              <%= f.text_field :instagram, placeholder: '@membername' %>
+            </h3>
+          </div>
+          <div class="m-profile__links--field">
+            <h3>
+              <i class="fa fa-github"></i>
+              <%= f.label :github, 'Github' %>
+              <%= f.text_field :github, placeholder: 'username' %>
+            </h3>
+          </div>
+          <div class="m-profile__links--field">
+            <h3>
+              <i class="fa fa-facebook-official"></i>
+              <%= f.label :facebook, 'Facebook' %>
+              <%= f.text_field :facebook, placeholder: 'username' %>
+            </h3>
+          </div>
+          <div class="m-profile__links--field">
+            <h3>
+              <i class="fa fa-linkedin"></i>
+              <%= f.label :linkedin, 'LinkedIn' %>
+              <%= f.text_field :linkedin, placeholder: 'username' %>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="a-section">
+      <div class="a-content">
+        <h3>
+          <%= f.label :bio, 'About me' %>
+          <%= f.trix_editor :bio %>
+        </h3>
+      </div>
+    </section>
+    <section class="a-section">
+      <div class="a-content">
+        <h3>
+          <%= f.label :email, 'Email' %>
+          <%= f.text_field :email, class: 'm-profile__wide-field' %>
+        </h3>
+        <div class="u-margin-top">
+          <%= link_to "Cancel", member_path(@member), class: 'a-button a-button--ghost u-right' %>
+          <%= f.submit 'Save', class: 'a-button u-right' %>
+        </div>
+      </div>
+    </div>
+    </section>
+  <% end %>
+</div>

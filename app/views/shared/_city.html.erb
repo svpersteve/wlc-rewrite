@@ -1,0 +1,6 @@
+<% if member.city.present? %>
+  <p>
+    <i class="fa fa-map-marker black"></i>
+    <%= link_to member.city, "http://maps.google.com/?q=#{member.city}", target: '_blank' %>
+  </p>
+<% end %>

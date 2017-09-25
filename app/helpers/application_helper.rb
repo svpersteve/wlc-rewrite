@@ -20,4 +20,20 @@ module ApplicationHelper
       content_tag(:i, nil, class: ["fa", "fa-#{site}"])
     end
   end
+
+  def linked_names_list_as_sentence(members)
+    members.map { |member| (link_to member.name, member) }.to_sentence.html_safe
+  end
+
+  def interest_options_for_select(members, selected = nil)
+    options_for_select(members.map { |m| [m.name, m.id] }, selected)
+  end
+
+  def excerpt(text, length = 250)
+    sanitize text.truncate(length, escape: false, omission: '...')
+  end
+
+  def avatar(member)
+    member.image || 'https://greenhost.net/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+  end
 end

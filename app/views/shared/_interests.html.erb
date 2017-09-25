@@ -1,0 +1,6 @@
+<% if member.interests.any? %>
+  <p>
+    <i class="fa fa-heart black"></i>
+    <%= linked_names_list_as_sentence(member.interests) %>
+  </p>
+<% end %>

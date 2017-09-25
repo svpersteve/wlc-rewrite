@@ -1,0 +1,27 @@
+<section class="a-section">
+  <div class="a-content--xwide">
+    <div class="m-grid--three">
+      <% @members.each do |member| %>
+        <div class="m-grid__box">
+          <div class="m-grid__banner" style="background-color: <%= member.colour %>"></div>
+          <div class="m-grid__box-content">
+            <%= image_tag(avatar(member), class: 'a-avatar a-avatar--small', style: "border: solid 2px #{member.colour}") %>
+            <h2>
+              <%= link_to member.name, member %>
+              <br/>
+              <div class="u-small-text">
+                <% if member.interests.any? %>
+                  <i class="fa fa-heart black"></i>
+                  <%= linked_names_list_as_sentence(member.interests) %>
+                <% end %>
+              </div>
+            </h2>
+            <div class="u-margin-top--smallest a-social-links--original-colours">
+              <%= render partial: 'members/social_links', locals: { member: member } %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

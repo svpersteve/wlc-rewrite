@@ -1,0 +1,25 @@
+<div class="m-profile__sidebar">
+  <%= image_tag avatar(@member), class: 'm-profile__avatar', style: "border-left: solid 5px #{@member.colour};" %>
+  <h1>
+    <div class="m-profile__name">
+      <%= @member.name %>
+    </div>
+  </h1>
+
+  <div class="m-profile__username">
+    <p><%= @member.username %></p>
+  </div>
+
+  <div class="m-profile__bio">
+    <%= render partial: 'shared/city', locals: { member: @member } %>
+    <%= render partial: 'shared/interests', locals: { member: @member } %>
+    <p>
+      <%= sanitize @member.bio %>
+    </p>
+    <%= link_to 'Edit', edit_member_path(@member), class: 'a-button u-full-width a-button--slim a-button--ghost' %>
+    <div class="m-profile__line"></div>
+  </div>
+  <div class="u-margin-top--smallest a-social-links--original-colours">
+    <%= render partial: 'members/social_links', locals: { member: @member } %>
+  </div>
+</div>

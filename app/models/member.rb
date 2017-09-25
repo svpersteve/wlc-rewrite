@@ -3,6 +3,7 @@ class Member < ApplicationRecord
   has_many :interests, through: :member_interests
   has_many :hackroom_leaders
   has_many :hackrooms, through: :hackroom_leaders
+  has_many :notes
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -38,5 +39,9 @@ class Member < ApplicationRecord
 
   def colour
     interests&.first&.colour || '#1446a0'
+  end
+
+  def first_name
+    name.split(' ').first
   end
 end

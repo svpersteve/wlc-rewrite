@@ -23,7 +23,6 @@
       </div>
     </section>
 
-
     <section class="a-section">
       <div class="a-content">
         <h2>Links</h2>
@@ -81,12 +80,24 @@
           <%= f.label :email, 'Email' %>
           <%= f.text_field :email, class: 'm-profile__wide-field' %>
         </h3>
-        <div class="u-margin-top">
+      </div>
+    </section>
+
+    <section class="a-section">
+      <div class="a-content">
+        <% if @member.notes.any? %>
+          <h2>
+            Data protection
+          </h2>
+          <p>We've stored <a href="<%= member_note_path(@member, @member.notes.first) %>" target='_blank'>some information</a> about you to help us look after you and help you achieve your goals. This was either through a survey or one of our organisers made some notes.</p>
+          <%= link_to 'Delete this data', delete_member_note_path(@member, @member.notes.first), 'data-confirm' => "Are you sure? This can't be undone.", class: 'a-button a-button--ghost' %>
+        <% end %>
+
+        <div class="u-margin-top u-right">
           <%= link_to "Cancel", member_path(@member), class: 'a-button a-button--ghost u-right' %>
           <%= f.submit 'Save', class: 'a-button u-right' %>
         </div>
       </div>
-    </div>
     </section>
   <% end %>
 </div>

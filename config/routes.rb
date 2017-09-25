@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     member do
       get :update_email
     end
+    resources :notes do
+      member do
+        get :delete
+      end
+    end
   end
 
   resources :hackrooms do
@@ -22,4 +27,6 @@ Rails.application.routes.draw do
     end
   end
   get '/past-meetups', to: 'meetups#past_meetups', as: 'past_meetups'
+
+  resources :notes, only: :index
 end

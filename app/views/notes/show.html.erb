@@ -1,0 +1,36 @@
+<% set_page_title(@member.name) %>
+
+<section class="a-section">
+  <div class="a-content">
+    <h1><%= @member.name %></h1>
+    <%= link_to 'View profile', @member, class: 'a-button a-button--ghost u-float-right' %>
+    <% if @note.current_role.present? %>
+      <p><%= @member.first_name %> is a <strong><%= @note.current_role %></strong></p>
+    <% end %>
+
+    <p><%= @member.first_name %> <strong><%= @note.learning_to_code ? 'is' : 'is not' %></strong> learning to code.</p>
+
+    <% if @note.started_learning_to_code %>
+      <p>He started learning to code on <%= @note.started_learning_to_code.strftime("%d %B %Y") %>.</p>
+    <% end %>
+    <p><%= @member.first_name %> <strong><%= @note.actively_looking_for_engineering_role ? 'is' : 'is not' %></strong> actively looking for an engineering role as of <%= @note.updated_at.strftime("%d %B %Y") %>.</p>
+
+    <% if @note.other_information.present? %>
+      <h2>Other information</h2>
+      <%= @note.other_information %>
+    <% end %>
+
+    <% if current_member.admin %>
+      <div class="u-admin-notes">
+        <h2>Admin notes</h2>
+        <%= @note.admin_notes %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<section class="a-section">
+  <div class="a-content u-right">
+    <%= link_to 'Edit', edit_member_note_path(@member, @note), class: 'a-button' %>
+  </div>
+</section>

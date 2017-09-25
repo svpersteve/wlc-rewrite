@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     end
 
     get_meetups
+    @hackrooms = Hackroom.all
   end
 
   private

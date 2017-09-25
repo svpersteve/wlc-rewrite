@@ -1,0 +1,31 @@
+<% set_page_title("Edit hackroom") %>
+<div class="u-margin-top"></div>
+<div class="m-sign-in m-sign-in--full">
+  <section class="a-section">
+    <div class="a-content">
+      <%= form_for @hackroom do |f| %>
+        <h3>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </h3>
+        <h3><%= f.label :description, 'Describe the language' %></h3>
+        <%= f.trix_editor :description %>
+        <h3><%= f.label :long_description, 'Describe the hackroom' %></h3>
+        <%= f.trix_editor :long_description %>
+        <h3>
+          <%= f.label :colour %>
+          <%= f.text_field :colour %>
+        </h3>
+        <h3>
+          <%= f.label :slack, 'Slack channel' %>
+          <%= f.text_field :slack %>
+        </h3>
+        <div class="u-right">
+          <%= link_to 'Cancel', @hackroom, class: 'a-button a-button--ghost' %>
+          <%= f.submit 'Save', class: 'a-button' %>
+        </div>
+        <div class="u-margin-bottom"></div>
+      <% end %>
+    </div>
+  </section>
+</div>

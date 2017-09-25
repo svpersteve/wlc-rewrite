@@ -34,6 +34,19 @@
 
 <section class="a-section a-section--img-block"></section>
 
+<section class="a-section a-section--alt a-section--separated u-padding-bottom">
+  <div class="a-content">
+    <h1 class="a-heading u-center">Hackrooms</h1>
+    <p><%= I18n.t('index_introductions.hackrooms').html_safe %></p>
+  </div>
+</section>
+<section class="a-section">
+  <div class="u-margin-top"></div>
+  <div class="a-content--xwide">
+    <%= render partial: 'shared/hackrooms', locals: { hackrooms: @hackrooms } %>
+  </div>
+</section>
+
 <div class="m-hero--home"></div>
 
 <script>

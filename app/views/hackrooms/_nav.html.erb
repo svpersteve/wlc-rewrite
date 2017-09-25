@@ -1,0 +1,19 @@
+<div class="m-profile__nav">
+  <h2>
+    <%= link_to "Practice #{@hackroom.name}", @hackroom %>
+    <% if selected == 'learn' %>
+      <div class="m-profile__line m-profile__line--nav"></div>
+    <% else %>
+      <div class="m-profile__line--nav m-profile__line--blank"></div>
+    <% end %>
+  </h2>
+
+  <h2>
+    <%= link_to 'Members', members_hackroom_path(@hackroom) %>
+    <% if selected == 'members' %>
+      <div class="m-profile__line m-profile__line--nav"></div>
+    <% else %>
+      <div class="m-profile__line--nav m-profile__line--blank"></div>
+    <% end %>
+  </h2>
+</div>

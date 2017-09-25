@@ -1,0 +1,35 @@
+<div class="m-profile__sidebar">
+  <%= image_tag(@hackroom.image, class: 'm-profile__avatar', style: "border-left: solid 5px #{@hackroom.colour};") %>
+  <h1>
+    <div class="m-profile__name">
+      <%= @hackroom.name %>
+    </div>
+    <% if @hackroom.leaders.any? %>
+      <div class="m-profile__admins">
+        <p>
+          Led by
+          <%= linked_names_list_as_sentence(@hackroom.leaders) %>
+        </p>
+      </div>
+    <% end %>
+  </h1>
+  <div class="m-profile__bio">
+    <p>
+      <%= sanitize @hackroom.description %>
+    </p>
+    <p>
+      <i class="fa fa-user-o"></i>
+      <%= pluralize @hackroom.interested_members.count, 'member' %>
+    </p>
+    <div class="a-buttons">
+      <% if current_member %>
+        <% join_button_text = current_member.interests.include?(@hackroom) ? 'Leave' : 'Join us' %>
+        <%= link_to join_button_text, join_hackroom_path(@hackroom), class: 'a-button u-full-width a-button--slim' %>
+        <%= link_to 'Edit', edit_hackroom_path(@hackroom), class: 'a-button u-full-width a-button--slim a-button--ghost' %>
+      <% end %>
+    </div>
+    <div class="m-profile__line"></div>
+  </div>
+  <div class="u-margin-top--smallest a-social-links--original-colours">
+  </div>
+</div>

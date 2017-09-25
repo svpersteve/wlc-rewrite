@@ -1,0 +1,7 @@
+<div class="m-profile__grid">
+  <% members.each do |member| %>
+    <%= link_to member do %>
+      <%= image_tag avatar(member), class: 'a-avatar a-avatar--small a-avatar--square', style: "border: solid 2px #{member.colour}" %>
+    <% end %>
+  <% end %>
+</div>

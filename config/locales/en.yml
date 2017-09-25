@@ -30,4 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  index_introductions:
+    hackrooms: Hackrooms are subgroups at our meetups that offer an inclusive and collaborative environment
+      for new and experienced developers to learn together, which <a href='http://westlondoncoders.com/posts/improving-the-meetup-with-user-feedback'>
+      is what members have told us</a> they want most from meetups.

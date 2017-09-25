@@ -1,0 +1,15 @@
+<div class="m-grid">
+  <% @hackrooms.each do |hackroom| %>
+    <div class="m-grid__box">
+      <div class="m-grid__banner" style="background-color: <%= hackroom.colour %>">
+        <h1 class="a-headline">
+          <%= link_to hackroom.name, hackroom %>
+        </h1>
+      </div>
+      <div class="m-grid__box-content">
+        <%= link_to image_tag(hackroom.image, class: 'a-avatar a-avatar--small', style: "border: solid 2px #{hackroom.colour}"), hackroom %>
+        <%= link_to excerpt(hackroom.description, 500), hackroom, class: 'u-unlink' if hackroom.description %>
+      </div>
+    </div>
+  <% end %>
+</div>

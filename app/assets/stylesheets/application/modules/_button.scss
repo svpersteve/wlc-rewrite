@@ -1,0 +1,60 @@
+.a-button {
+  display: inline-block;
+  border: 0;
+  background-color: $color-blue;
+  border: solid 1px $color-blue;
+  color: $color-white;
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    @include button-fade;
+    color: $color-white;
+    border: solid 1px $color-pink;
+  }
+}
+
+.a-button--small {
+  padding: 7px;
+}
+
+.a-button--ghost {
+  background-color: transparent;
+  color: $color-blue !important;
+
+  &:hover {
+    @include button-fade;
+    background-color: transparent;
+    color: $color-pink;
+    border: solid 1px $color-pink;
+  }
+}
+
+.a-button--pink {
+  border: solid 1px $color-pink;
+
+  &:hover {
+    @include button-fade;
+    color: $color-white;
+    background-color: $color-light-blue;
+    border: solid 1px $color-light-blue;
+  }
+}
+
+.a-button--elastic {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+
+  @media #{$from-medium} {
+    width: auto;
+
+    .a-content--form & {
+      width: 100%;
+    }
+  }
+}
+
+.a-button--slim {
+  padding: 3px;
+}

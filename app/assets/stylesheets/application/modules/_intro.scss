@@ -1,0 +1,40 @@
+.m-intro {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .a-button {
+    margin: 20px auto 30px;
+  }
+
+  h3 a:hover {
+    border-bottom: 3px solid $color-pink;
+    transition: none;
+    color: $color-blue;
+  }
+}
+
+.m-intro__logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+
+  .m-intro__logo:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.m-intro__logo {
+  img {
+    height: 80px;
+    width: auto;
+  }
+}
+

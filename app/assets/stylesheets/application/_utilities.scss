@@ -1,0 +1,97 @@
+.u-center {
+  text-align: center;
+}
+
+.u-left {
+  text-align: left;
+}
+
+.u-right {
+  text-align: right;
+}
+
+.u-float-left {
+  float: left;
+}
+
+.u-float-right {
+  float: right;
+}
+
+.u-margin-top {
+  margin-top: 50px;
+}
+
+.u-margin-top--small {
+  margin-top: 25px;
+}
+
+.u-margin-top--smallest {
+  margin-top: 15px;
+}
+
+.u-margin-bottom {
+  margin-bottom: 50px;
+}
+
+.u-margin-bottom--small {
+  margin-bottom: 25px;
+}
+
+.u-padding-bottom {
+  padding-bottom: 50px;
+}
+
+.u-margin-bottom--none {
+  margin-bottom: 0;
+}
+
+.field_with_errors {
+  border: solid 2px $color-pink;
+}
+
+.u-padding {
+  padding: 20px;
+}
+
+.no-js .hide-if-no-js {
+  display: none;
+}
+
+.js .hide-if-js {
+  display: none;
+}
+
+.u-navbar-clear {
+  padding-top: $navbar-height;
+}
+
+.js-reveal__hidden {
+  display: none;
+}
+
+.u-interval {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.u-small-text {
+  font-size: 14px;
+}
+
+.u-notification-icon {
+  padding: 0 5px 5px 0;
+}
+
+.u-margin-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.u-full-width {
+  width: 100%;
+}
+
+.u-unlink, .u-unlink:hover { color: inherit }
+
+.black { color: $color-black; }

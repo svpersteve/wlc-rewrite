@@ -14,10 +14,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem "autoprefixer-rails"
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
+  gem 'pry'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :development do

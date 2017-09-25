@@ -25,6 +25,7 @@ gem "recaptcha", require: "recaptcha/rails"
 gem 'trix'
 gem 'friendly_id'
 gem 'cancancan', '~> 2.0'
+gem 'paper_trail'
 
 group :development, :test do
   gem 'pry'

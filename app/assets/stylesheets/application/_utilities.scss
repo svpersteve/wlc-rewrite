@@ -95,3 +95,15 @@
 .u-unlink, .u-unlink:hover { color: inherit }
 
 .black { color: $color-black; }
+
+.u-admin-notes {
+  width: 100%;
+  padding: 20px;
+  background-color: $color-yellow;
+  margin-top: 50px;
+  color: $color-blue;
+
+  h2 {
+    margin-top: 0;
+  }
+}

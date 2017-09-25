@@ -1,0 +1,37 @@
+<header>
+  <div class="s-navbar">
+
+    <div class="s-navbar__logo">
+      <%= link_to root_path do %>
+        <img src="<%= asset_path("logo.svg") %>"/>
+        <span class="s-navbar__logo-text">West London Coders</span>
+      <% end %>
+    </div>
+
+    <div class="s-navbar__desktop-nav-menu">
+      <%= render partial: 'layouts/navbar/nav_menu_items' %>
+    </div>
+
+    <div class="s-navbar__mobile-burger">
+      <a href="#" id="js-nav-menu-dropdown-mobile-trigger">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <div class="s-navbar__user-nav-icons" id="nav-icons">
+    </div>
+  </div>
+
+  <div id="nav-menu-dropdown-mobile">
+    <%= render partial: 'layouts/navbar/nav_menu_dropdown_mobile' %>
+  </div>
+
+  <div id="user-nav-menu-dropdown">
+    <%= render partial: 'layouts/navbar/user_nav_menu_dropdown' %>
+  </div>
+
+</header>
+
+<%= render partial: 'layouts/social_links' %>
+
+<div class="u-navbar-clear"></div>

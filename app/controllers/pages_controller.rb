@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
   def home
+    if current_member
+      redirect_to update_email_member_path(current_member) if current_member.email.include? 'changeme'
+    end
+
     get_meetups
   end
 

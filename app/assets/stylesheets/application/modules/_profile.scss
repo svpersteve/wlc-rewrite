@@ -70,20 +70,33 @@
   font-size: 30px;
   margin-bottom: 0;
   display: block;
-  margin-bottom: -15px;
+  margin: 20px 0 10px;
+
 }
 
 .m-profile__username {
-  a, i, p {
-    font-size: 22px;
-    color: $color-light-grey;
-    margin-top: -15px;
-    font-weight: normal;
-  }
+  margin-bottom: 40px;
+  font-size: 16px;
+  color: $color-light-grey;
+  margin-top: -15px;
+  font-weight: normal;
 
   i {
     margin-top: 7px;
   }
+
+  @media #{$from-medium} {
+    margin-bottom: 20px;
+  }
+}
+
+.m-profile__city,
+.m-profile__interests {
+  margin: 5px 0;
+}
+
+.m-profile__city {
+  margin-top: 10px;
 }
 
 .m-profile__admins {

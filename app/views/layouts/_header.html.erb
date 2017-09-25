@@ -19,6 +19,16 @@
     </div>
 
     <div class="s-navbar__user-nav-icons" id="nav-icons">
+      <% if current_member %>
+        <%= link_to member_path(current_member), class: 'js-user-nav-trigger' do %>
+          <i class="fa fa-gear s-navbar__icon"></i>
+        <% end %>
+      <% else %>
+        <%= link_to member_meetup_omniauth_authorize_path, class: 'a-button a-button--small' do %>
+          <i class="fa fa-meetup"></i>
+          Sign in
+        <% end %>
+      <% end %>
     </div>
   </div>
 
@@ -27,7 +37,7 @@
   </div>
 
   <div id="user-nav-menu-dropdown">
-    <%= render partial: 'layouts/navbar/user_nav_menu_dropdown' %>
+    <%= render partial: 'layouts/navbar/user_nav_menu_dropdown' if current_member %>
   </div>
 
 </header>

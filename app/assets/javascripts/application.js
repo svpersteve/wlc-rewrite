@@ -14,3 +14,5 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require turbolinks
+//= require application/code_highlighting.js
+//= require application/menu.js

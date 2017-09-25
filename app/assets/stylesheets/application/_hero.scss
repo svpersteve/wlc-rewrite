@@ -1,0 +1,59 @@
+.m-hero--video {
+  @media #{$to-small} {
+    display: none;
+  }
+  video {
+    z-index: -100;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+  }
+  h1 {
+    display: inline-block;
+    background-color: $color-white;
+    text-align: center;
+    padding: 10px;
+    margin: 0 5%;
+    font-size: 1.5em;
+    position: absolute;
+    top: 80vh;
+    @media #{$from-medium} {
+      font-size: 2.5em;
+      margin-right: 30%;
+    }
+  }
+}
+
+.m-hero--home {
+  height: 100vh;
+
+  background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/medium/home.jpg");
+  background-size: cover;
+
+  @media #{$to-medium} {
+    display: none;
+  }
+
+  @media #{$from-large} {
+    margin-bottom: -50px;
+    background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/large/home.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  h1 {
+    display: inline-block;
+    background-color: $color-white;
+    text-align: center;
+    padding: 10px;
+    margin: 0 5%;
+    font-size: 1.5em;
+    position: absolute;
+    top: 80vh;
+    @media #{$from-medium} {
+      font-size: 2.5em;
+      margin-right: 30%;
+    }
+  }
+}

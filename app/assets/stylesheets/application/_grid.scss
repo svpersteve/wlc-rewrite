@@ -1,0 +1,126 @@
+.m-grid {
+  display: grid;
+  margin-top: -50px;
+  grid-template-columns: 100%;
+
+  @media #{$from-large} {
+    grid-gap: 4%;
+    grid-template-columns: 48% 48%;
+  }
+
+  @media #{$from-xxlarge} {
+    grid-gap: 4%;
+    grid-template-columns: 31% 31% 31%;
+  }
+}
+
+.m-grid--three {
+  display: grid;
+  margin-top: -50px;
+  grid-template-columns: 100%;
+
+  @media #{$from-medium} {
+    grid-gap: 3%;
+    grid-template-columns: 48% 48%;
+  }
+
+  @media #{$from-large} {
+    grid-gap: 4%;
+    grid-template-columns: 31% 31% 31%;
+  }
+}
+
+.m-grid__box {
+  width: 100%;
+  border: 1px solid $color-border;
+  background-color: $color-white;
+  margin: 50px auto 0;
+}
+
+.m-grid__box--invisible {
+  width: 100%;
+  background-color: $color-white;
+  margin: 50px auto 0;
+}
+
+.m-grid__box-content {
+  padding: 15px 30px 30px;
+}
+
+.m-grid__logo {
+  margin: 0 auto;
+  width: auto;
+  max-height: 100px;
+}
+
+.m-grid__banner {
+  background-position: 0 50%;
+  background-size: 100%;
+  display: block;
+  height: 90px;
+
+  h1, h2 {
+    text-align: right;
+    padding: 10px 15px;
+    margin: 0;
+  }
+
+  a,
+  a:hover {
+    color: $color-white;
+  }
+}
+
+.m-grid--comments {
+  display: grid;
+  margin-top: -30px;
+  grid-template-columns: 100%;
+
+  @media #{$from-large} {
+    grid-gap: 3%;
+    grid-template-columns: 48% 48%;
+  }
+
+  @media #{$from-xlarge} {
+    grid-gap: 4%;
+    grid-template-columns: 31% 31% 31%;
+  }
+}
+
+.m-grid__comment {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  width: 100%;
+  background-color: $color-white;
+  margin: 30px auto 0;
+}
+
+.m-grid__comment__banner {
+  background-size: cover;
+  background-position: 0 50%;
+  display: block;
+  min-height: 130px;
+}
+
+.m-grid__comment__box-content {
+  padding: 5px 10px;
+  background-color: $color-pale-blue;
+  height: auto;
+
+  a,
+  a:hover {
+    color: $color-black;
+  }
+}
+
+.m-grid__comment__context-strip {
+  grid-column: 1 / span 2;
+  padding: 5px 10px;
+  text-align: left;
+
+  a,
+  a:hover {
+    font-size: 14px;
+    color: $color-white;
+  }
+}

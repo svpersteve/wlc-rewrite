@@ -1,0 +1,100 @@
+.a-section {
+  overflow: hidden;
+  padding-left: $page-padding;
+  padding-right: $page-padding;
+}
+
+.a-section--overflow {
+  @include clearfix;
+  overflow: visible;
+}
+
+.a-section--alt {
+  background-color: $color-pale-blue;
+}
+
+.a-section--img {
+  background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/small/background.jpg");
+  background-size: cover;
+
+  @media #{$from-small} {
+    background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/medium/background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  @media #{$from-large} {
+    background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/large/background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
+.a-section--img-people {
+  background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/small/members2.jpg");
+  background-size: cover;
+
+  @media #{$from-small} {
+    background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/medium/members2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  @media #{$from-large} {
+    background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/large/members2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
+.a-section--img-block {
+  background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/small/background2.jpg");
+  background-size: cover;
+  height: 200px;
+
+  @media #{$from-small} {
+    height: 500px;
+    background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/medium/background2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  @media #{$from-large} {
+    background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/large/background2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
+.a-section--img-block2 {
+  background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/small/background3.jpg");
+  background-size: cover;
+  height: 300px;
+  margin-top: 40px;
+  margin-bottom: -100px;
+
+  @media #{$from-small} {
+    height: 450px;
+    background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/medium/background3.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  @media #{$from-medium} {
+    margin-bottom: -50px;
+  }
+
+  @media #{$from-large} {
+    background: url("https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/large/background3.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
+
+.a-section--separated {
+  border-bottom: solid 2px $color-border;
+}
+
+.a-section--separated-top {
+  border-top: solid 1px $color-border;
+}

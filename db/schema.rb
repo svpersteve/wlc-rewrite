@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924141140) do
+ActiveRecord::Schema.define(version: 20170924204601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hackroom_leaders", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "hackroom_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hackroom_id"], name: "index_hackroom_leaders_on_hackroom_id", unique: true
+    t.index ["member_id"], name: "index_hackroom_leaders_on_member_id", unique: true
+  end
+
+  create_table "hackrooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug"
+    t.text "description"
+    t.text "long_description"
+    t.string "slack"
+    t.string "image"
+    t.string "colour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "member_interests", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "interest_id", null: false
+    t.index ["interest_id"], name: "index_member_interests_on_interest_id", unique: true
+    t.index ["member_id"], name: "index_member_interests_on_member_id"
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "name", default: "", null: false

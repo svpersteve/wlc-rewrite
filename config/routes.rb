@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :hackrooms do
+    member do
+      get :members
+      get :join
+    end
+  end
+
   resources :meetups do
     member do
       get :badges

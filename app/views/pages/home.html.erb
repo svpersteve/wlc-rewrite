@@ -1,0 +1,42 @@
+<% set_page_title("Learn, discuss and practice code") %>
+
+<div class="m-hero--video">
+  <%= video_tag "https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/video/gdg.mov", controls: false, autoplay: true, muted: true, loop: true, id: 'home-vid' %>
+  <h1 id="next-meetup-banner">Learn, discuss and practice code.</h1>
+</div>
+
+<% if @next_meetup['venue'] %>
+  <section class="a-section">
+    <div class="a-content--wide">
+      <div class="m-intro">
+        <h1 class="a-heading--large">
+          Join
+          <%= @next_meetup['yes_rsvp_count'] %>
+          others at our next meetup
+        </h1>
+        <h2>
+          <% seconds = (@next_meetup['time'].to_f / 1000).to_s %>
+          <% date = Date.strptime(seconds, '%s') %>
+          <%= date.strftime("%A #{date.day.ordinalize} %B") %>
+          at
+          <%= @next_meetup['venue']['name'] %>
+        </h2>
+        <h3>
+          <%= link_to "http://maps.google.com/?q=#{@next_meetup['venue']['address_1']}", target: '_blank' do %>
+            <%= @next_meetup['venue']['address_1'] %>
+          <% end %>
+        </h3>
+        <%= link_to 'RSVP', @next_meetup['link'], target: '_blank', class: 'a-button' %>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<section class="a-section a-section--img-block"></section>
+
+<div class="m-hero--home"></div>
+
+<script>
+  var videoHero = document.getElementById('home-vid');
+  videoHero.muted = "muted";
+</script>

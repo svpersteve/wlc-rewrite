@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem "autoprefixer-rails"
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem 'rest-client'
 
 group :development, :test do
   gem 'pry'

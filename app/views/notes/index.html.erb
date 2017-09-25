@@ -1,0 +1,36 @@
+<% set_page_title('Member Information') %>
+
+<section class="a-section">
+  <div class="a-content">
+    <h1>Member information</h1>
+    <p>Please don't share this data with anyone without consent from the person who owns it.</p>
+  </div>
+
+  <div class="a-content--xwide">
+    <table class='m-table'>
+      <tr>
+        <th style='width: 18%;'></th>
+        <th>Current role</th>
+        <th>Learning to code</th>
+        <th>Looking for engineering role</th>
+        <th>Started learning on</th>
+        <th style='width: 34%;'>Other Information</th>
+      </tr>
+      <% @notes.each do |note| %>
+        <tr>
+          <td style='width: 18%;'>
+            <%= link_to member_note_path(note.member, note) do %>
+              <div class="m-badge__avatar" style="background-image: url(<%= avatar(note.member) %>); margin: 5px auto;"></div>
+              <%= note.member.name %>
+            <% end %>
+          </td>
+          <td><%= note.current_role if note.started_learning_to_code %></td>
+          <td><%= note.learning_to_code ? 'Yes' : 'No' %></td>
+          <td><%= note.actively_looking_for_engineering_role ? 'Yes' : 'No' %></td>
+          <td><%= note.started_learning_to_code.strftime("%d %B %Y") if note.started_learning_to_code %></td>
+          <td style='width: 34%;'><%= note.other_information %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<%= form_for [@member, @note] do |f| %>
+  <div class="u-margin-top"></div>
+  <div class="m-sign-in m-sign-in--full">
+    <section class="a-section">
+      <div class="a-content">
+        <h1>Editing notes for <%= @member.first_name %></h1>
+        <%= render partial: 'fields', locals: { f: f } %>
+        <div class="u-right u-margin-top--small">
+          <%= link_to 'Cancel', member_note_path(@member, @note), class: 'a-button a-button--ghost' %>
+          <%= f.submit 'Save', class: 'a-button' %>
+        </div>
+        <div class="u-margin-bottom"></div>
+      </div>
+    </section>
+  </div>
+<% end %>

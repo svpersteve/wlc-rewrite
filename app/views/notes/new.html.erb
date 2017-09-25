@@ -1,0 +1,17 @@
+<%= form_for [@member, @note] do |f| %>
+  <div class="u-margin-top"></div>
+  <div class="m-sign-in m-sign-in--full">
+    <section class="a-section">
+      <div class="a-content">
+        <h1>Tell us more about you.</h1>
+        <p>Providing this information helps us help you. It's all <strong>optional</strong>, and we won't share it anywhere without your consent. You can delete it at any time from <a href='<%= edit_member_path(@member) %>' >your profile</a>.</p>
+        <%= render partial: 'fields', locals: { f: f } %>
+        <div class="u-right u-margin-top--small">
+          <%= link_to 'Cancel', @member, class: 'a-button a-button--ghost' %>
+          <%= f.submit 'Save', class: 'a-button' %>
+        </div>
+        <div class="u-margin-bottom"></div>
+      </div>
+    </section>
+  </div>
+<% end %>

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   check_authorization
   protect_from_forgery with: :exception
   before_action :store_location, unless: :devise_controller?
+  before_action :set_paper_trail_whodunnit
 
   if Rails.env.production?
     force_ssl

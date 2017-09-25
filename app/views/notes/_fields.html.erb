@@ -1,0 +1,24 @@
+<h3>
+  <%= f.label :current_role, 'What do you do for a living currently?' %>
+  <%= f.text_field :current_role %>
+</h3>
+<h3>
+  <%= f.check_box :learning_to_code, style: 'margin-right: 10px;' %>
+  <%= f.label :learning_to_code, 'Are you learning to code?' %>
+</h3>
+
+<h3>
+  <%= f.check_box :actively_looking_for_engineering_role, style: 'margin-right: 10px;' %>
+  <%= f.label :actively_looking_for_engineering_role, 'Are you looking for a job in software engineering?' %>
+</h3>
+<h3>
+  <%= f.label :started_learning_to_code, 'Roughly when did you start learning to code?' %>
+  <%= f.date_field :started_learning_to_code %>
+</h3>
+<h3><%= f.label :other_information, "Is there anything else you'd like to tell us?" %></h3>
+<%= f.text_area :other_information, style: 'width: 100%; height: 150px;' %>
+<% if current_member.admin %>
+  <h3><%= f.label :admin_notes, "Admin notes" %></h3>
+  <p>Members cannot see this, but only write things you wouldn't mind them seeing.</p>
+  <%= f.text_area :admin_notes, style: 'width: 100%; height: 150px;' %>
+<% end %>

@@ -1,4 +1,9 @@
 <div class="s-navbar__user-nav-menu-dropdown">
   <%= link_to "Your profile", member_path(current_member), class: 's-navbar__nav' %>
+
+  <% if current_member.admin %>
+    <%= link_to "Member information", notes_path, class: 's-navbar__nav' %>
+  <% end %>
+
   <%= link_to "Sign out", destroy_member_session_path, method: :delete, class: 's-navbar__nav' %>
 </div>

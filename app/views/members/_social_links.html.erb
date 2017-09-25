@@ -1,0 +1,21 @@
+<div class="a-social-links">
+  <% if member.github.present? %>
+    <%= social_url(member.github, :github) %>
+  <% end %>
+  <% if member.linkedin.present? %>
+    <%= link_to "https://linkedin.com/in/#{member.linkedin}", target: '_blank' do %>
+      <i class="fa fa-linkedin"></i>
+    <% end %>
+  <% end %>
+  <% if member.twitter.present? %>
+    <%= social_url(member.twitter, :twitter) %>
+  <% end %>
+  <% if member.facebook.present? %>
+    <%= link_to member.facebook, target: '_blank' do %>
+      <i class="fa fa-facebook-official"></i>
+    <% end %>
+  <% end %>
+  <% if member.instagram.present? %>
+    <%= social_url(member.instagram, :instagram) %>
+  <% end %>
+</div>

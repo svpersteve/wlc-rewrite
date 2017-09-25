@@ -18,6 +18,12 @@ gem "autoprefixer-rails"
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'rest-client'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-meetup'
+gem "recaptcha", require: "recaptcha/rails"
+gem 'trix'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'pry'

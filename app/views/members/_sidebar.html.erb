@@ -1,0 +1,32 @@
+<div class="m-profile__sidebar">
+  <%= image_tag avatar(@member), class: 'm-profile__avatar', style: "border-left: solid 5px #{@member.colour};" %>
+  <h1>
+    <div class="m-profile__name">
+      <%= @member.name %>
+    </div>
+    <div class="m-profile__username">
+      <%= @member.username %>
+    </div>
+  </h1>
+  <div class="m-profile__bio">
+    <p>
+      <% if @member.city.present? %>
+        <i class="fa fa-map-marker black"></i>
+        <%= link_to @member.city, "http://maps.google.com/?q=#{@member.city}", target: '_blank' %>
+      <% end %>
+      <% if @member.interests.any? %>
+        <br>
+        <i class="fa fa-heart black"></i>
+        <%= linked_names_list_as_sentence(@member.interests) %>
+      <% end %>
+    </p>
+    <p>
+      <%= sanitize @member.bio %>
+    </p>
+    <%= link_to 'Edit', edit_member_path(@member), class: 'a-button u-full-width a-button--slim a-button--ghost' %>
+    <div class="m-profile__line"></div>
+  </div>
+  <div class="u-margin-top--smallest a-social-links--original-colours">
+    <%= render partial: 'members/social_links', locals: { member: @member } %>
+  </div>
+</div>

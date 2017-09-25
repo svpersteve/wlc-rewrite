@@ -19,6 +19,15 @@
     </div>
 
     <div class="s-navbar__user-nav-icons" id="nav-icons">
+      <% if current_member %>
+        <%= link_to member_path(current_member), class: 'js-user-nav-trigger' do %>
+          <i class="fa fa-gear"></i>
+        <% end %>
+      <% else %>
+        <%= link_to new_member_session_path, class: 'a-button a-button--small' do %>
+          Sign in
+        <% end %>
+      <% end %>
     </div>
   </div>
 
@@ -27,7 +36,7 @@
   </div>
 
   <div id="user-nav-menu-dropdown">
-    <%= render partial: 'layouts/navbar/user_nav_menu_dropdown' %>
+    <%= render partial: 'layouts/navbar/user_nav_menu_dropdown' if current_member %>
   </div>
 
 </header>

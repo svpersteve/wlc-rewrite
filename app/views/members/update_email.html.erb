@@ -9,6 +9,11 @@
           <%= f.label :email, 'Email' %>
           <%= f.text_field :email, class: 'm-profile__wide-field', value: '' %>
         </h3>
+        <h1>And optionally, what interests you most?</h1>
+        <h3>
+          <%= f.label :interest_ids, 'Interests' %>
+          <%= f.select :interest_ids, interest_options_for_select(Hackroom.order('name asc'), f.object.interest_ids), { label: 'Interests' }, multiple: true, class: 'chosen-select' %>
+        </h3>
         <div class="u-margin-top u-right">
           <%= f.submit 'Save', class: 'a-button u-right' %>
         </div>

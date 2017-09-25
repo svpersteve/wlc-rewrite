@@ -1,0 +1,31 @@
+<div class="m-badges">
+  <% @members.each do |member| %>
+    <div class="m-badge">
+      <div class="m-badge__header">
+        <img src="<%= asset_path("logo.svg") %>"/>
+        <span class="s-navbar__logo-text">West London Coders</span>
+      </div>
+      <div class="m-badge__content">
+        <div class="a-avatar--background m-badge__avatar" style="background-image: url(<%= member['member']['photo']['thumb_link'] %>)"></div>
+        <div class="m-badge__details">
+          <div class="m-badge__name">
+            <%= member['member']['name'] %>
+          </div>
+          <% if member['member']['role'] %>
+            <div class="m-badge__role">
+              <%= member['member']['role'] %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="m-badge__footer">
+        <div class="m-badge__wifi">
+          Wifi: napguests
+          <br/>
+          Password: nap297
+        </div>
+        <img src="https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/ynap.png"/>
+      </div>
+    </div>
+  <% end %>
+</div>

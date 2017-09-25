@@ -1,0 +1,24 @@
+<section class="a-section a-section--alt">
+  <div class="a-content--wide">
+    <h1>Upcoming meetups</h1>
+    <div class="m-grid">
+      <% @meetups.each do |meetup| %>
+        <%= render partial: 'meetup', locals: { meetup: meetup, past: false } %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<section class="a-section a-section--alt">
+  <div class="a-content--wide">
+    <h1>Past meetups</h1>
+    <p>
+      <%= link_to 'See all past meetups', past_meetups_path %>
+    </p>
+    <div class="m-grid">
+      <% @last_six_past_meetups.each do |meetup| %>
+        <%= render partial: 'meetup', locals: { meetup: meetup, past: true } %>
+      <% end %>
+    </div>
+  </div>
+  <br/>
+</section>

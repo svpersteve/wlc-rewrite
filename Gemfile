@@ -24,6 +24,7 @@ gem 'omniauth-meetup'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'trix'
 gem 'friendly_id'
+gem 'cancancan', '~> 2.0'
 
 group :development, :test do
   gem 'pry'

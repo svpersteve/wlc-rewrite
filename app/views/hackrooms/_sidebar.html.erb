@@ -24,8 +24,8 @@
     <div class="a-buttons">
       <% if current_member %>
         <% join_button_text = current_member.interests.include?(@hackroom) ? 'Leave' : 'Join us' %>
-        <%= link_to join_button_text, join_hackroom_path(@hackroom), class: 'a-button u-full-width a-button--slim' %>
-        <%= link_to 'Edit', edit_hackroom_path(@hackroom), class: 'a-button u-full-width a-button--slim a-button--ghost' %>
+        <%= link_to join_button_text, join_hackroom_path(@hackroom), class: 'a-button u-full-width a-button--slim' if can? :join, @hackroom %>
+        <%= link_to 'Edit', edit_hackroom_path(@hackroom), class: 'a-button u-full-width a-button--slim a-button--ghost' if can? :edit, @hackroom %>
       <% end %>
     </div>
     <div class="m-profile__line"></div>

@@ -1,4 +1,5 @@
 class SessionsController < Devise::SessionsController
+  skip_authorization_check
   prepend_before_action :check_captcha, only: [:create]
 
   private

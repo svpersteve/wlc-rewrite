@@ -19,7 +19,7 @@
     <p>
       <%= sanitize @member.bio %>
     </p>
-    <%= link_to 'Edit', edit_member_path(@member), class: 'a-button u-full-width a-button--slim a-button--ghost' %>
+    <%= link_to 'Edit', edit_member_path(@member), class: 'a-button u-full-width a-button--slim a-button--ghost' if can? :edit, @member %>
     <div class="m-profile__line"></div>
   </div>
   <div class="u-margin-top--smallest a-social-links--original-colours">

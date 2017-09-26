@@ -1,17 +1,26 @@
 class HackroomsController < ApplicationController
+  skip_authorization_check
   before_action :find_hackroom, except: :index
 
   def index
+    authorize! :read, Hackroom
     @hackrooms = Hackroom.all
   end
 
   def show
+    authorize! :read, @hackroom
   end
 
   def edit
+    authorize! :edit, @hackroom
+  end
+
+  def members
+    authorize! :read, @hackroom
   end
 
   def update
+    authorize! :update, @hackroom
     if @hackroom.update_attributes(hackroom_params)
       redirect_to @hackroom, notice: 'Hackroom updated.'
     else
@@ -20,6 +29,7 @@ class HackroomsController < ApplicationController
   end
 
   def join
+    authorize! :join, @hackroom
     interest = current_member.member_interests.where(interest: @hackroom).first
     if interest
       interest.destroy

@@ -1,4 +1,5 @@
 class MeetupsController < ApplicationController
+  skip_authorization_check
   before_action :get_meetup, except: [:index, :past_meetups]
 
   def index
@@ -11,6 +12,7 @@ class MeetupsController < ApplicationController
   end
 
   def badges
+    authorize! :manage, :all
     @no_layout = true
   end
 

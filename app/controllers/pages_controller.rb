@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    authorize! :read, Hackroom
     if current_member
       redirect_to update_email_member_path(current_member) if current_member.email.include? 'changeme'
     end

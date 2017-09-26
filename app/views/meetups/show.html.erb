@@ -23,9 +23,11 @@
         <%= link_to "RSVP", @meetup['link'], target: '_blank', class: 'a-button' %>
       <% end %>
     </div>
-    <p class="u-float-right">
-      <%= link_to 'Print badges', badges_meetup_path(@meetup['id']), target: '_blank' %>
-    </p>
+    <% if current_member && current_member.admin %>
+      <p class="u-float-right">
+        <%= link_to 'Print badges', badges_meetup_path(@meetup['id']), target: '_blank' %>
+      </p>
+    <% end %>
   </div>
 </section>
 

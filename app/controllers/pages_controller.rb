@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_authorization_check
+
   def home
     if current_member
       redirect_to update_email_member_path(current_member) if current_member.email.include? 'changeme'

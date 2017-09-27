@@ -1,0 +1,15 @@
+<section class="a-section">
+  <div class="a-content">
+    <h1>Blog</h1>
+    <div class="m-blog__posts">
+      <% @posts.each do |post| %>
+        <div class="m-blog__post">
+          <h2 class="m-blog__title">
+            <%= link_to post.title, post %>
+          </h2>
+          <%= excerpt post.content %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

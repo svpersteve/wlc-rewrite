@@ -1,0 +1,7 @@
+<h2>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'u-full-width' %>
+</h2>
+
+<h3><%= f.label :content, 'Post content' %></h3>
+<%= f.trix_editor :content %>

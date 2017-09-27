@@ -1,0 +1,11 @@
+<section class="a-section">
+  <div class="a-content">
+    <%= form_for @post do |f| %>
+      <%= render partial: 'fields', locals: { f: f } %>
+      <div class="u-right u-margin-top--small">
+        <%= link_to 'Cancel', posts_path, class: 'a-button a-button--ghost' %>
+        <%= f.submit 'Save', class: 'a-button' %>
+      </div>
+    <% end %>
+  </div>
+</section>

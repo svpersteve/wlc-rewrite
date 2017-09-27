@@ -1,0 +1,41 @@
+<section class="a-section">
+  <h1 class="m-blog__headline"><%= @post.title %></h1>
+</section>
+
+<section class="a-section">
+  <div class="a-content--wide">
+    <div class="m-blog__page">
+      <div class="m-blog__meta">
+        <div class="m-badge__avatar a-avatar--square" style="background-image: url(<%= avatar(@post.author) %>)"></div>
+        <p>
+          <%= link_to @post.author.name, @post.author %>
+          <% if @post.author.interests.any? %>
+            <br>
+            <i class="fa fa-heart black"></i>
+            <%= linked_names_list_as_sentence(@post.author.interests) %>
+          <% end %>
+        </p>
+      </div>
+
+      <div class="m-blog__content">
+        <%= sanitize @post.content %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="a-section">
+  <div class="a-content--wide">
+    <h2>More stories</h2>
+    <div class="m-blog__stories">
+      <% @more_stories.each do |post| %>
+        <div class="m-blog__post">
+          <h2 class="m-blog__title">
+            <%= link_to post.title, post %>
+          </h2>
+          <%= excerpt post.content, 100 %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

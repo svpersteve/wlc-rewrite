@@ -23,6 +23,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'factory_girl'
 end
 
 group :development do

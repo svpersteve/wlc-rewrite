@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       resources :members, only: [:index, :show, :update] do
         get :notes
       end
+      resources :hackrooms, only: [:index, :show, :update]
     end
   end
 end

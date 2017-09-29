@@ -11,12 +11,14 @@ class Api::V1::MembersController < Api::V1::BaseController
         basic_info: basic_info,
         private_info: private_info,
         interests: interests,
+        hackrooms: hackrooms,
         notes: "#{base_api_url}/members/#{@member.id}/notes"
       }
     else
       render json: {
         basic_info: basic_info,
-        interests: interests
+        interests: interests,
+        hackrooms: hackrooms
       }
     end
   end
@@ -82,5 +84,9 @@ class Api::V1::MembersController < Api::V1::BaseController
 
   def interests
     @member.interests.map { |i| { name: i.name, href: "#{base_api_url}/hackrooms/#{i.id}"} }
+  end
+
+  def hackrooms
+    @member.hackrooms.map { |h| { name: h.name, href: "#{base_api_url}/hackrooms/#{h.id}"} }
   end
 end

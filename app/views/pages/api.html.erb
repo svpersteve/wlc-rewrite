@@ -1,0 +1,150 @@
+<% set_page_title("API") %>
+
+<section class="a-section a-section--alt">
+  <div class="m-banner">
+    <div class="m-banner__left" style="background-image: url(<%= image_url('https://s3.eu-west-2.amazonaws.com/westlondoncoders/site-assets/heroes/small/members.jpg') %>); background-size: cover; background-position: center;"></div>
+    <div class="m-banner__right">
+      <div class="m-banner__text">
+        <h1 class="a-heading u-center">API Documentation</h1>
+        <p>
+          <%= I18n.t('index_introductions.api').html_safe %>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="a-section">
+  <div class="a-content">
+    <h1>Authentication</h1>
+    <p>For now, you can use a WLC API key for endpoints that require authentication by including it in the URL:</p>
+<pre>
+curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"name": "Fred"}' https://westlondoncoders.com/api/members/2?key=1234-5678
+</pre>
+    <p>The above would change the name of the member with the ID of 2 to Fred. Without the correct API key the request would return an unauthorized response.</p>
+    <p class="u-bold">
+      <i class="fa fa-warning"></i>
+      The API key should only be used in server-side code and should never be exposed publicly. Remember to use .env to store the key so it's not visible in repositories.
+    </p>
+
+
+    <h1>Index and show pattern</h1>
+    <p>To keep requests light, I've followed a pattern of indexes that only list the name or ID of each item and a link to the item itself for more details.</p>
+<pre>
+{
+  name: 'Steve Brewer',
+  href: 'https://westlondoncoders.com/api/members/steve-brewer'
+}</pre>
+
+    <p>The link would then return the following:</p>
+<pre>
+{
+  basic_info: {
+    name: "Steve Brewer",
+    city: "Southall",
+    bio: "Organiser of West London Coders and software engineer at FutureLearn.",
+    image: "https://secure.meetupstatic.com/photos/member/d/7/6/e/member_259615150.jpeg",
+    twitter: "@svpersteve",
+    github: "svpersteve"
+  },
+  interests: [
+    {
+    name: "Ruby",
+    href: "https://westlondoncoders.com/api/hackrooms/1"
+    }
+  ],
+  hackrooms: [
+    {
+    name: "Ruby",
+    href: "https://westlondoncoders.com/api/hackrooms/1"
+    }
+  ]
+}
+</pre>
+
+    <h1>Endpoints</h1>
+
+    <% api_models.each do |api_model| %>
+      <h2><%= api_model[:name] %></h2>
+      <% api_model[:endpoints].each do |endpoint| %>
+        <%= endpoint[:name] %>
+      <% end %>
+    <% end %>
+
+  <h2>Meetups</h2>
+  <h3>Meetup index</h3>
+  <p>Returns all upcoming meetups</p>
+<pre>GET /meetups/</pre>
+<pre>
+[
+  {
+    date: "Saturday 7th October",
+    href: "https://westlondoncoders.com/api/meetups/243231923"
+  },
+  {
+    date: "Saturday 7th October",
+    href: "https://westlondoncoders.com/api/meetups/243231984"
+  }
+]
+</pre>
+
+  <h3>Meetup show</h3>
+  <p>Returns more information about a meetup</p>
+<pre>GET /meetups/:id</pre>
+<pre>
+{
+  meetup: {created_at:...},
+  rsvps: [{name:...}]
+}
+</pre>
+
+  <h2>Members</h2>
+  <h3>Members index</h3>
+  <p>Returns all members</p>
+<pre>GET /members/</pre>
+<pre>
+[
+  {
+    name: "Steve Brewer",
+    href: "https://westlondoncoders.com/api/members/1"
+  },
+  {
+    name: "Fred",
+    href: "https://westlondoncoders.com/api/members/2"
+  }
+]
+</pre>
+
+  <h3>Member show</h3>
+  <p>Returns more information about a member</p>
+<pre>GET /members/:id</pre>
+<pre>
+{
+  basic_info: {
+    name: "Steve Brewer",
+    city: "Southall",
+    bio: "Organiser of West London Coders and software engineer at FutureLearn.",
+    image: "https://secure.meetupstatic.com/photos/member/d/7/6/e/member_259615150.jpeg",
+    twitter: "@svpersteve",
+    github: "svpersteve"
+  },
+
+  interests: [
+    {
+      name: "Ruby",
+      href: "https://westlondoncoders.com/api/hackrooms/1"
+    }
+  ],
+
+  hackrooms: [
+    {
+      name: "Ruby",
+      href: "https://westlondoncoders.com/api/hackrooms/1"
+    }
+  ]
+}
+</pre>
+  <h2>Hackrooms</h2>
+  </div>
+</section>

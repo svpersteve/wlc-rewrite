@@ -34,3 +34,4 @@ en:
     hackrooms: Hackrooms are subgroups at our meetups that offer an inclusive and collaborative environment
       for new and experienced developers to learn together, which <a href='http://westlondoncoders.com/posts/improving-the-meetup-with-user-feedback'>
       is what members have told us</a> they want most from meetups.
+    api: This describes the resources that make up the official West London Coders REST API v1. If you have any problems or requests please contact an organiser.

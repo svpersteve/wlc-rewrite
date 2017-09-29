@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  get '/api', to: 'pages#api'
 
   devise_for :members, controllers: { omniauth_callbacks: "callbacks", registrations: "registrations", passwords: "passwords", sessions: "sessions" }
 

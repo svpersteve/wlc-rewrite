@@ -29,4 +29,9 @@ Rails.application.routes.draw do
   get '/past-meetups', to: 'meetups#past_meetups', as: 'past_meetups'
 
   resources :notes, only: :index
+
+  namespace :api do
+    namespace :v1 do
+    end
+  end
 end

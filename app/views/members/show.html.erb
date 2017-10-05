@@ -2,8 +2,10 @@
 <div class="m-profile">
   <%= render partial: 'sidebar' %>
   <div class="m-profile__content">
-    <%= render partial: 'nav', locals: { selected: 'followers' } %>
+    <%= render partial: 'nav', locals: { selected: 'topics' } %>
     <div class="m-profile__current-content">
-    </div>
+      <% if @member.forum_threads.any? %>
+        <%= render partial: 'forum_threads/table', locals: { forum_threads: @member.forum_threads } %>
+      <% end %>
   </div>
 </div>

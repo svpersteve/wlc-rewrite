@@ -26,6 +26,9 @@ gem 'trix'
 gem 'friendly_id'
 gem 'cancancan', '~> 2.0'
 gem 'paper_trail'
+gem 'ransack'
+gem 'local_time'
+gem 'paranoia', "~> 2.2"
 
 group :development, :test do
   gem 'pry'

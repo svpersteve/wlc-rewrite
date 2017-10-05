@@ -1,0 +1,8 @@
+<section class="a-section">
+  <div class="a-content">
+    <h1><%= @forum_thread.subject %></h1>
+    <%= render @forum_thread.forum_posts %>
+
+    <%= render partial: "forum_posts/form" %>
+  </div>
+</section>

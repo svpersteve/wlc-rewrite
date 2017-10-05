@@ -34,6 +34,25 @@ module ApplicationHelper
   end
 
   def avatar(member)
-    member.image || 'https://greenhost.net/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+    if member.image.present?
+      member.image
+    else
+      'https://greenhost.net/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+    end
+  end
+
+  def time_ago(time)
+    a = (Time.now - time).to_i
+
+    case a
+      when 0 then '0m'
+      when 1 then '1s'
+      when 2..59 then a.to_s + 's'
+      when 60..3540 then (a/60).to_i.to_s + 'm'
+      when 3541..82800 then ((a+99)/3600).to_i.to_s + 'h'
+      when 82801..518400 then ((a+800)/(60*60*24)).to_i.to_s + 'd'
+      when 518400..1036800 then '1w'
+      else ((a+180000)/(60*60*24*7)).to_i.to_s + 'w'
+    end
   end
 end

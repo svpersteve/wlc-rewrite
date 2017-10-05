@@ -1,0 +1,1 @@
+$("#<%= @forum_post.id %>").html("<%= escape_javascript render partial: "forum_post", locals: { forum_post: @forum_post } %>");

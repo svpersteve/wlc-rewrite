@@ -4,6 +4,10 @@ class Member < ApplicationRecord
   has_many :hackroom_leaders
   has_many :hackrooms, through: :hackroom_leaders
   has_many :notes
+  has_many :forum_threads
+  has_many :forum_posts
+  has_many :forum_post_likes
+  has_many :liked_posts, through: :forum_post_likes, source: :forum_post
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,

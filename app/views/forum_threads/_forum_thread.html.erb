@@ -1,0 +1,23 @@
+<tr>
+  <td class="forums__subject">
+    <%= link_to forum_thread.subject, forum_thread %>
+  </td>
+
+  <td class="forums__members">
+    <% forum_thread.participants.take(5).each do |member| %>
+      <%= link_to (image_tag avatar(member), class: 'a-avatar--mini-round'), member %>
+    <% end %>
+  </td>
+
+  <td class="forums__replies">
+    <%= forum_thread.forum_posts.count %>
+  </td>
+
+  <td class="forums__views">
+    <%= forum_thread.visits.count %>
+  </td>
+
+  <td class="forums__activity">
+    <%= time_ago forum_thread.created_at %>
+  </td>
+</tr>

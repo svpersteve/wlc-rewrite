@@ -1,0 +1,12 @@
+<%= form_for @forum_thread do |f| %>
+  <h1><%= f.text_field :subject, placeholder: "Title", class: 'u-full-width' %></h1>
+
+  <%= f.fields_for :forum_posts do |p| %>
+      <%= p.trix_editor :body, placeholder: "What do you want to say?", rows: 10, class: "form-control" %>
+  <% end %>
+
+  <div class="u-right">
+    <%= link_to 'Cancel', forum_threads_path, class: 'a-button a-button--ghost' %>
+    <%= f.submit 'Post', class: "a-button u-margin-top" %>
+  </div>
+<% end %>

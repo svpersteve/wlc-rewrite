@@ -15,6 +15,13 @@ class Ability
       can :manage, Note, member: member
       # Let members join and leave hackrooms
       can :join, Hackroom
+
+      can :create, ForumThread
+      can :create, ForumPost
+      can :manage, ForumPost, member: member
+      can :manage, ForumThread, member: member
+      can :like, ForumThread
+      can :like, ForumPost
     end
   end
 end

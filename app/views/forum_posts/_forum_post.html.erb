@@ -1,0 +1,50 @@
+<% forum_thread = forum_post.forum_thread %>
+
+<div class="forum" id="<%= forum_post.id %>">
+  <div class="forum__meta">
+    <%= link_to image_tag(avatar(forum_post.member), class: 'a-avatar--small-round'), forum_post.member %>
+    <p>
+      <%= link_to forum_post.member.name, forum_post.member %>
+      <br>
+      <%= local_time_ago forum_post.created_at %></p>
+  </div>
+  <div>
+    <%= sanitize forum_post.body %>
+  </div>
+
+  <div class="u-links">
+    <% if can? :edit, forum_post %>
+      <%= link_to 'Edit', edit_forum_thread_forum_post_path(forum_post.forum_thread, forum_post) %>
+    <% end %>
+
+    <% if forum_post ==  forum_thread.forum_posts.first %>
+      <% if can? :delete, forum_thread %>
+        <%= link_to 'Delete thread', forum_thread_path(forum_thread), method: :delete %>
+      <% end %>
+    <% else %>
+      <% if can? :delete, forum_post %>
+        <%= link_to 'Delete', forum_thread_forum_post_path(forum_post.forum_thread, forum_post), method: :delete %>
+      <% end %>
+    <% end %>
+    <% if forum_post.liked_by(current_member) %>
+      <%= link_to like_forum_thread_forum_post_path(forum_thread, forum_post), remote: true do %>
+        <i class="fa fa-heart u-pink"></i>
+      <% end %>
+    <% else %>
+      <%= link_to like_forum_thread_forum_post_path(forum_thread, forum_post), remote: true do %>
+        <i class="fa fa-heart-o"></i>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="u-right u-margin-bottom--small">
+    <%= pluralize(forum_post.likes.count, 'like') %>
+    <div class="forums__likes">
+      <% forum_post.likes.each do |like| %>
+        <%= link_to (image_tag avatar(like), class: 'a-avatar--mini-round'), like %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="m-profile__line u-margin-bottom--small"></div>
+</div>

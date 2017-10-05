@@ -16,4 +16,6 @@
 //= require turbolinks
 //= require application/code_highlighting.js
 //= require application/menu.js
+//= require application/reveal.js
 //= require trix
+//= require local-time

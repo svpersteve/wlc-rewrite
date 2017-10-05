@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926102404) do
+ActiveRecord::Schema.define(version: 20171005200038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "forum_post_likes", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "forum_post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forum_post_id"], name: "index_forum_post_likes_on_forum_post_id"
+    t.index ["member_id"], name: "index_forum_post_likes_on_member_id"
+  end
+
+  create_table "forum_posts", force: :cascade do |t|
+    t.bigint "forum_thread_id", null: false
+    t.bigint "member_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_forum_posts_on_deleted_at"
+    t.index ["forum_thread_id"], name: "index_forum_posts_on_forum_thread_id"
+    t.index ["member_id"], name: "index_forum_posts_on_member_id"
+  end
+
+  create_table "forum_thread_visits", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "forum_thread_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forum_thread_id"], name: "index_forum_thread_visits_on_forum_thread_id"
+    t.index ["member_id"], name: "index_forum_thread_visits_on_member_id"
+  end
+
+  create_table "forum_threads", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.string "subject", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.string "slug"
+    t.index ["deleted_at"], name: "index_forum_threads_on_deleted_at"
+    t.index ["member_id"], name: "index_forum_threads_on_member_id"
+  end
 
   create_table "hackroom_leaders", force: :cascade do |t|
     t.bigint "member_id"
@@ -75,7 +116,9 @@ ActiveRecord::Schema.define(version: 20170926102404) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
+    t.datetime "deleted_at"
     t.index ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true
+    t.index ["deleted_at"], name: "index_members_on_deleted_at"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
@@ -91,6 +134,28 @@ ActiveRecord::Schema.define(version: 20170926102404) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_notes_on_member_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "slug"
+    t.datetime "published_at"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "featured"
+    t.index ["author_id"], name: "index_posts_on_author_id"
+  end
+
+  create_table "repos", force: :cascade do |t|
+    t.bigint "member_id"
+    t.integer "uid"
+    t.string "provider"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_repos_on_member_id"
   end
 
   create_table "versions", force: :cascade do |t|

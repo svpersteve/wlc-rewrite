@@ -29,4 +29,12 @@ Rails.application.routes.draw do
   get '/past-meetups', to: 'meetups#past_meetups', as: 'past_meetups'
 
   resources :notes, only: :index
+
+  resources :forum_threads, path: 'forums' do
+    resources :forum_posts, path: 'posts' do
+      member do
+        get :like
+      end
+    end
+  end
 end

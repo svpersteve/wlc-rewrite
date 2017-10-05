@@ -5,5 +5,6 @@
     <%= render partial: 'layouts/header'  unless @no_layout %>
     <%= render partial: 'layouts/messages'  unless @no_layout %>
     <%= yield %>
+    <div class="u-navbar-clear"></div>
   </body>
 </html>

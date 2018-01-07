@@ -44,7 +44,7 @@
     </h1>
     <div class="m-members">
       <% @members.each do |member| %>
-        <%= link_to member.profile_url, target: '_blank' do %>
+        <%= link_to member_path(member.id) do %>
           <div class="m-member">
             <div class="m-member__content">
               <div class="m-badge__avatar" style="background-image: url(<%= member.thumbnail_image %>)"></div>

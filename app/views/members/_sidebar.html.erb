@@ -1,0 +1,27 @@
+<div class="m-profile__sidebar">
+  <%= image_tag @member.image, class: 'm-profile__avatar' %>
+  <div class="m-profile__name">
+    <%= @member.name %>
+  </div>
+
+  <div class="m-profile__username">
+    <% if @member.group_role.present? %>
+      <span class="capitalize"><%= @member.group_role %></span>
+    <% end %>
+  </div>
+
+  <div class="m-profile__bio">
+    <ul class="m-profile__stats">
+      <li><%= "Joined #{timestamp_to_full_date(@member.date_joined)}" %></li>
+      <li><%= "Lives in #{@member.city}" if @member.city.present? %></li>
+    </ul>
+
+    <p>
+      <%= @member.intro %>
+    </p>
+
+    <p class="m-profile__meetup-link"><%= link_to 'View profile', @member.profile_url, target: '_blank' %></p>
+
+    <div class="m-profile__line"></div>
+  </div>
+</div>

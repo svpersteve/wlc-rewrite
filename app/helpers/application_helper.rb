@@ -17,6 +17,12 @@ module ApplicationHelper
     date.strftime("%A #{date.day.ordinalize} %B")
   end
 
+  def timestamp_to_full_date(timestamp)
+    seconds = (timestamp.to_f / 1000).to_s
+    date = Date.strptime(seconds, '%s')
+    date.strftime("#{date.day.ordinalize} %B %Y")
+  end
+
   def google_maps_link_for(address)
     "http://maps.google.com/?q=#{address}"
   end

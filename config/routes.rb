@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     end
   end
   get '/past-meetups', to: 'meetups#past_meetups', as: 'past_meetups'
+  resources :members, only: :show
 end

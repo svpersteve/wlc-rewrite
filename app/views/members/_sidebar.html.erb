@@ -20,6 +20,11 @@
       <%= @member.intro %>
     </p>
 
+    <% @meetup_profile.services.each do |service| %>
+      <%= social_link(service) %>
+      <br>
+    <% end %>
+
     <p class="m-profile__meetup-link"><%= link_to 'View profile', @member.profile_url, target: '_blank' %></p>
 
     <div class="m-profile__line"></div>

@@ -2,6 +2,7 @@
 <div class="m-profile">
   <%= render partial: 'sidebar' %>
   <div class="m-profile__content">
+    <%= render partial: 'nav', locals: { selected: 'interests' } %>
     <div class="m-profile__current-content">
       <ul>
         <% @meetup_profile.topics.each do |topic| %>

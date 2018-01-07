@@ -26,4 +26,13 @@ module ApplicationHelper
   def google_maps_link_for(address)
     "http://maps.google.com/?q=#{address}"
   end
+
+  def social_link(link)
+    case link[0]
+    when 'twitter'
+      content_tag(:a, 'Twitter', href: "https://twitter.com/#{link[1]['identifier']}", target: '__blank')
+    when 'facebook'
+      content_tag(:a, 'Facebook', href: link[1]['identifier'], target: '__blank')
+    end
+  end
 end

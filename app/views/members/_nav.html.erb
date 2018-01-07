@@ -1,0 +1,10 @@
+<div class="m-profile__nav">
+  <h2>
+    <%= link_to 'Interests', member_path(@member.id) %>
+    <% if selected == 'interests' %>
+      <div class="m-profile__line m-profile__line--nav"></div>
+    <% else %>
+      <div class="m-profile__line--nav m-profile__line--blank"></div>
+    <% end %>
+  </h2>
+</div>

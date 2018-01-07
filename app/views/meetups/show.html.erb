@@ -17,11 +17,7 @@
       <%= @meetup.address %>
     <% end %>
     <div class="u-margin-top--small">
-      <% if @meetup.rsvp_count > 0 %>
-        <%= link_to "RSVP", @meetup.url, target: '_blank', class: 'a-button' %>
-      <% else %>
-        <%= link_to "RSVP", @meetup.url, target: '_blank', class: 'a-button' %>
-      <% end %>
+      <%= link_to "RSVP", @meetup.url, target: '_blank', class: 'a-button' %>
     </div>
     <p class="u-float-right">
       <%= link_to 'Print badges', badges_meetup_path(@meetup.id), target: '_blank' %>

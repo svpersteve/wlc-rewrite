@@ -9,7 +9,16 @@
 
 <section class="a-section a-section--img-block"></section>
 
-<!-- Add content here -->
+<section class="a-section a-section--alt">
+  <div class="a-content--wide a-content--spacious-bottom">
+    <h1>Upcoming meetups</h1>
+    <div class="m-grid">
+      <% @upcoming_meetups.each do |meetup| %>
+        <%= render partial: 'meetups/meetup', locals: { meetup: meetup, past: false } %>
+      <% end %>
+    </div>
+  </div>
+</section>
 
 <div class="m-hero--home"></div>
 

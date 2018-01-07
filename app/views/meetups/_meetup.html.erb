@@ -1,0 +1,27 @@
+<div class="m-grid__box">
+  <div class="m-grid__box-content m-grid__box-content--full-height">
+    <% seconds = (meetup['time'].to_f / 1000).to_s %>
+    <% date = Date.strptime(seconds, '%s') %>
+    <p>
+      <%= date.strftime("%A #{date.day.ordinalize} %B") %>
+    </p>
+    <h2>
+      <%= link_to meetup['name'], meetup_path(meetup['id']) %>
+    </h2>
+    <%= link_to "http://maps.google.com/?q=#{meetup['venue']['address_1']}", target: '_blank' do %>
+      <%= meetup['venue']['name'] %>
+      <br/>
+      <%= meetup['venue']['address_1'] %>
+    <% end %>
+    <% if past %>
+      <h3 class="u-margin-top--small u-right">
+        <%= pluralize meetup['yes_rsvp_count'], 'person' %>
+        attended
+      </h3>
+    <% else %>
+      <div class="u-right">
+        <%= render partial: 'meetups/rsvp_button', locals: { guest_count: meetup['yes_rsvp_count'], link: meetup['link']} %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<% if guest_count > 0 %>
+  <%= link_to "Join #{guest_count} others", link, target: '_blank', class: 'a-button' %>
+<% else %>
+  <%= link_to "RSVP", link, target: '_blank', class: 'a-button' %>
+<% end %>

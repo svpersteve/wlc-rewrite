@@ -38,6 +38,13 @@
   margin-top: 15px;
 }
 
+.a-content--spacious {
+  @media #{$from-medium} {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
 .a-content-top--spacious {
   @media #{$from-medium} {
     margin-top: 80px;

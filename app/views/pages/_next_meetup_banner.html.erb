@@ -4,17 +4,15 @@
       <div class="a-content--wide">
         <div class="m-intro">
           <h1 class="a-heading--large">
-            Join <%= @next_meetup['yes_rsvp_count'] %> others at our next meetup
+            Spend time with people who love to code.
           </h1>
           <h2>
-            <%= timestamp_to_date(@next_meetup['time']) %> at <%= @next_meetup['venue']['name'] %>
+            <%= timestamp_to_date(@next_meetup['time']) %>
           </h2>
           <h3>
-            <%= link_to "http://maps.google.com/?q=#{@next_meetup['venue']['address_1']}", target: '_blank' do %>
-              <%= @next_meetup['venue']['address_1'] %>
-            <% end %>
+            <%= render partial: 'venue_address' %>
           </h3>
-          <%= link_to 'RSVP', @next_meetup['link'], target: '_blank', class: 'a-button' %>
+          <%= render partial: 'meetups/rsvp_button', locals: { guest_count: @next_meetup['yes_rsvp_count'], link: @next_meetup['link']} %>
         </div>
       </div>
     </section>

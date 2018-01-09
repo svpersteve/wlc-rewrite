@@ -7,20 +7,34 @@
 
 <%= render partial: 'next_meetup_banner' %>
 
+<div class="m-hero--home"></div>
+
+<section class="a-section">
+  <div class="a-content a-content--spacious a-content-top--spacious">
+    <h1>What do we do at meetups?</h1>
+    <p>Start the day with some pizza from YOOX NET-A-PORTER, then network, socialise and code across 4-5 rooms with people interested in the same programming languages as you, depending who arrives on the day.</p>
+
+    <p>Python, JavaScript, Swift, Ruby and front-end are most popular, and there's lot's of people <strong>completely new to programming</strong>. Everyone is welcome.</p>
+
+    <p>Some like to collaborate, practice code challenges, socialise or just talk to people about what it's like working in software.</p>
+
+    <p><strong>Ideally bring a laptop or tablet, but it's not required.</strong></p>
+  </div>
+</section>
+
 <section class="a-section a-section--img-block"></section>
 
 <section class="a-section a-section--alt">
-  <div class="a-content--wide a-content--spacious-bottom">
+  <div class="a-content--wide">
     <h1>Upcoming meetups</h1>
     <div class="m-grid">
       <% @upcoming_meetups.each do |meetup| %>
         <%= render partial: 'meetups/meetup', locals: { meetup: meetup, past: false } %>
       <% end %>
     </div>
+    <h3><%= link_to 'See all meetups', meetups_path %></h3>
   </div>
 </section>
-
-<div class="m-hero--home"></div>
 
 <script>
   var videoHero = document.getElementById('home-vid');

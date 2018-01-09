@@ -1,0 +1,5 @@
+<%= link_to "http://maps.google.com/?q=#{@next_meetup['venue']['address_1']}", target: '_blank' do %>
+  <%= @next_meetup['venue']['name'] %>
+  <br>
+  <%= (@next_meetup['venue']['name'] == 'YOOX NET-A-PORTER') ? @next_meetup['venue']['address_1'].gsub('LONDON, London', '') : @next_meetup['venue']['address_1'] %>
+<% end %>
